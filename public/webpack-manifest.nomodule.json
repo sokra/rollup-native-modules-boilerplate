@@ -1,13 +1,13 @@
 {
   "main": {
+    "name": "main",
     "chunks": [
-      1,
-      0
+      179
     ],
     "assets": [
-      "1-78ce9c1acac414191033.nomodule.js",
-      "main-209b3ff253b8196c7347.nomodule.js"
+      "main-8f0e7ba57899c8bea658.nomodule.js"
     ],
+    "auxiliaryAssets": [],
     "children": {},
     "childAssets": {}
   }

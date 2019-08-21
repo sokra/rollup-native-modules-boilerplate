@@ -1,21 +1,23 @@
 {
   "main": {
+    "name": "main",
     "chunks": [
-      6,
-      1,
-      8,
-      5,
-      9,
-      0
+      100,
+      502,
+      705,
+      361,
+      420,
+      659
     ],
     "assets": [
-      "6-ebab16fe2c03f0e5f58d.js",
-      "1-90c6f51ca29d2c5708ae.js",
-      "8-8fdc1330d56dc4611d5d.js",
-      "5-3dc70b5125fa2686d003.js",
-      "9-1717a0805c87b5743dce.js",
-      "main~06837ae4-54427dbd6ed3118c23e1.js"
+      "main-e96e9bea-12b956c4f4b2a7f30d3b.js",
+      "main-48a4958c-4b4854411cdc0279be22.js",
+      "main-5e25e51c-6f8476c297421d2388c6.js",
+      "main-b19a9cb0-0b5e28c6e25bcfabfd11.js",
+      "main-efdee510-45b42b33ed08fa5c80f9.js",
+      "main-7dff463b-ace8eea6f3ba8bd4780d.js"
     ],
+    "auxiliaryAssets": [],
     "children": {},
     "childAssets": {}
   }

@@ -52,7 +52,6 @@ const getConfig = ({nomodule = false} = {}) => {
       ],
     },
     optimization: {
-      moduleIds: 'hashed',
       splitChunks: nomodule ? {
         name: false,
         chunks: 'all',
@@ -66,7 +65,7 @@ const getConfig = ({nomodule = false} = {}) => {
       },
     },
     plugins: [
-        stylesheet && new MCEP({
+      stylesheet && new MCEP({
         filename: '[name]-[contenthash].css',
       }),
       (compiler) => {
@@ -84,7 +83,7 @@ const getConfig = ({nomodule = false} = {}) => {
           );
         });
       },
-    ].filter(x => x),
+    ].filter((x) => x),
     stats: {
       chunkModules: true,
       chunks: true,
