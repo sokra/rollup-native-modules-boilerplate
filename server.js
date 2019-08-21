@@ -16,6 +16,7 @@
 const express = require('express');
 const fs = require('fs-extra');
 const nunjucks = require('nunjucks');
+const compression = require('compression');
 const path = require('path');
 const uaParser = require('ua-parser-js');
 const pkg = require('./package.json');
@@ -26,6 +27,7 @@ nunjucks.configure({
 });
 
 const app = express();
+app.use(compression());
 
 app.use(express.static(pkg.config.publicDir));
 
