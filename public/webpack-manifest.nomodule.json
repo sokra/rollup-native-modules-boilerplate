@@ -1,0 +1,14 @@
+{
+  "main": {
+    "chunks": [
+      1,
+      0
+    ],
+    "assets": [
+      "1-78ce9c1acac414191033.nomodule.js",
+      "main-209b3ff253b8196c7347.nomodule.js"
+    ],
+    "children": {},
+    "childAssets": {}
+  }
+}

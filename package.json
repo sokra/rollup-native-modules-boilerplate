@@ -8,8 +8,6 @@
   "scripts": {
     "test": "eslint *.js src/**/*.mjs",
     "build": "rollup -c && node clean.js && webpack",
-    "glitch": "git pull -s recursive -X theirs origin master && refresh",
-    "prestart": "if [ ! -d \"./public\" ]; then npm run build; fi",
     "start": "node server.js",
     "watch": "trap 'kill %1 && exit 0' SIGINT; node server.js & rollup -cw"
   },

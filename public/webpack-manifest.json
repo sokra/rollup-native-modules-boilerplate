@@ -1,0 +1,22 @@
+{
+  "main": {
+    "chunks": [
+      6,
+      1,
+      8,
+      5,
+      9,
+      0
+    ],
+    "assets": [
+      "6-ebab16fe2c03f0e5f58d.js",
+      "1-90c6f51ca29d2c5708ae.js",
+      "8-8fdc1330d56dc4611d5d.js",
+      "5-3dc70b5125fa2686d003.js",
+      "9-1717a0805c87b5743dce.js",
+      "main~06837ae4-54427dbd6ed3118c23e1.js"
+    ],
+    "children": {},
+    "childAssets": {}
+  }
+}

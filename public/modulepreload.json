@@ -1,0 +1,16 @@
+{
+  "main": [
+    "main-3010cefd.mjs",
+    "react-4ce18c00.mjs",
+    "object-assign-c4c0b8e5.mjs",
+    "core-js-c26d8b53.mjs",
+    "date-fns-466f94c0.mjs",
+    "highlight.js-318c44ab.mjs",
+    "style-inject-d8a06a3d.mjs"
+  ],
+  "AsyncComponent": [
+    "AsyncComponent-343a5b6a.mjs",
+    "lodash-es-d4c48c59.mjs",
+    "rxjs-0e416010.mjs"
+  ]
+}
