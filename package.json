@@ -7,7 +7,7 @@
   "license": "Apache-2.0",
   "scripts": {
     "test": "eslint *.js src/**/*.mjs",
-    "build": "rollup -c && node clean.js",
+    "build": "rollup -c && node clean.js && webpack",
     "glitch": "git pull -s recursive -X theirs origin master && refresh",
     "prestart": "if [ ! -d \"./public\" ]; then npm run build; fi",
     "start": "node server.js",
@@ -39,7 +39,9 @@
     "@babel/core": "^7.5.5",
     "@babel/plugin-transform-react-jsx": "^7.3.0",
     "@babel/preset-env": "^7.5.5",
+    "babel-loader": "^8.0.6",
     "core-js": "^3.2.0",
+    "css-loader": "^3.2.0",
     "date-fns": "^2.0.0-beta.4",
     "dynamic-import-polyfill": "^0.1.0",
     "express": "^4.17.1",
@@ -47,6 +49,7 @@
     "globby": "^10.0.1",
     "highlight.js": "^9.15.9",
     "lodash-es": "^4.17.15",
+    "mini-css-extract-plugin": "^0.8.0",
     "moment": "^2.24.0",
     "nunjucks": "^3.2.0",
     "react": "^16.9.0",
@@ -60,7 +63,10 @@
     "rollup-plugin-replace": "^2.2.0",
     "rollup-plugin-terser": "^5.1.1",
     "rxjs": "^6.5.2",
-    "ua-parser-js": "^0.7.20"
+    "style-loader": "^1.0.0",
+    "ua-parser-js": "^0.7.20",
+    "webpack": "^4.39.2",
+    "webpack-cli": "^3.3.7"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.2",

@@ -57,6 +57,12 @@ export class App extends React.Component {
     this.setState({modules: this.getImportedModules()});
   }
 
+  componentDidMount() {
+    if (window.location.search === '?auto') {
+      setTimeout(() => this.importAsyncDeps(), 2000);
+    }
+  }
+
   render() {
     const code = [
       '// `AsyncComponent.mjs` imports `lodash-es` and `rxjs`.',

@@ -29,6 +29,37 @@ const app = express();
 
 app.use(express.static(pkg.config.publicDir));
 
+app.get('/webpack', function(request, response) {
+  // Parse the UA string to determine modulepreload support.
+  const ua = uaParser(request.headers['user-agent']);
+
+  const manifest = fs.readJsonSync(
+      path.join(pkg.config.publicDir, 'webpack-manifest.json'));
+  const manifestNoModule = fs.readJsonSync(
+      path.join(pkg.config.publicDir, 'webpack-manifest.nomodule.json'));
+
+  const templateData = {
+    manifest,
+    manifestNoModule,
+    browserSupportsModulePreload: ua.engine.name === 'Blink',
+    ENV: process.env.NODE_ENV || 'development',
+  };
+
+  response.send(nunjucks.render('views/webpack.html', templateData));
+});
+
+app.get('/webpack-classic', function(request, response) {
+  const manifest = fs.readJsonSync(
+      path.join(pkg.config.publicDir, 'webpack-manifest.json'));
+
+  const templateData = {
+    manifest,
+    ENV: process.env.NODE_ENV || 'development',
+  };
+
+  response.send(nunjucks.render('views/webpack-classic.html', templateData));
+});
+
 app.get('/', function(request, response) {
   // Parse the UA string to determine modulepreload support.
   const ua = uaParser(request.headers['user-agent']);

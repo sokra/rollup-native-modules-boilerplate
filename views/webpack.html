@@ -16,17 +16,22 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Real Modules with Rollup Demo</title>
+  <title>Fake Modules with webpack Demo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- If you need CSP, this is how you can configure it to work with the dynamic import polyfill -->
   <!-- <meta http-equiv="Content-Security-Policy" content="script-src 'self' blob:"> -->
 
-  {% for module in modulepreload.main %}
-    {% if browserSupportsModulePreload -%}
-      <link rel="modulepreload" href="{{ module }}"></script>
-    {%- else -%}
-      <link rel="preload" as="script" crossorigin="anonymous" href="{{ module }}"></script>
+  {% for item in manifest.main.assets %}
+    {% if item.endsWith(".js") %}
+      {% if browserSupportsModulePreload -%}
+        <link rel="modulepreload" href="{{ item }}"></script>
+      {%- else -%}
+        <link rel="preload" as="script" crossorigin="anonymous" href="{{ item }}"></script>
+      {%- endif %}
+    {%- endif %}
+    {% if item.endsWith(".css") %}
+      <link rel="preload" as="stylesheet" crossorigin="anonymous" href="{{ item }}"></script>
     {%- endif %}
   {%- endfor %}
 
@@ -69,6 +74,11 @@
       color: hsl(210, 100%, 50%);
     }
   </style>
+  {% for item in manifest.main.assets %}
+    {% if item.endsWith(".css") %}
+      <link rel="stylesheet" href="{{ item }}">
+    {%- endif %}
+  {%- endfor %}
 </head>
 <body>
   <main>
@@ -78,13 +88,21 @@
       </noscript>
     </section>
     <footer>
-      <p>The source code for this demo can be found on GitHub at <a href="https://github.com/philipwalton/rollup-native-modules-boilerplate">rollup-native-modules-boilerplate</a>. The technique used for deploying modules is based on the article <a href="https://philipwalton.com/articles/using-native-javascript-modules-in-production-today/">Using Native JavaScript Modules in Production Today</a> by <a href="https://twitter.com/philwalton">@philwalton</a>.</p>
+      <p>The source code for this demo can be found on GitHub at <a href="https://github.com/philipwalton/rollup-native-modules-boilerplate">rollup-native-modules-boilerplate</a>.</p>
     </footer>
   </main>
 
-  <script type="module" src="{{ manifest.main }}"></script>
+  {% for item in manifest.main.assets %}
+    {% if item.endsWith(".js") %}
+      <script type="module" src="{{ item }}"></script>
+    {%- endif %}
+  {%- endfor %}
   {% if ENV == 'production' %}
-    <script nomodule src="{{ manifest.nomodule }}"></script>
-  {% endif %}
+    {% for item in manifestNoModule.main.assets %}
+      {% if item.endsWith(".js") %}
+        <script nomodule src="{{ item }}"></script>
+      {%- endif %}
+    {%- endfor %}
+  {%- endif %}
 </body>
 </html>
